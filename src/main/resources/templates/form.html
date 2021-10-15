@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head th:replace = "layouts/base_layout :: head">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+	<div class = "row justify-content-center">
+		<div class = "col-md-4 mt-5">
+			<div class = "alert alert-success" th:if = "${success != null}" th:text = "${success}"></div>
+		</div>
+	</div>
+	
+    <div class = "container">
+    	<div class = "row justify-content-center">
+    		<div class="card mt-5">
+				<div class="card-header text-center">
+					<h1>Subir Imágenes</h1>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ab doloremque perspiciatis dicta, adipisci omnis error nostrum repellendus autem? Distinctio porro esse, exercitationem fugit possimus commodi neque officiis eius cum?</p>
+				</div>
+				<div class="card-body">
+					<form th:action ="@{/api/imagenes/}" th:object="${imagenes}" method="POST" enctype="multipart/form-data">
+			
+						<div class="row form-group">
+							<input type="file" name="file" class="m-2">
+						</div>
+						<button type="submit" class="btn btn-success">Guardar</button>
+					</form>
+				</div>
+			</div>
+    	</div>
+		<div class="m-5">
+			<a th:href="@{/api/imagenes/listar}"><button class="btn btn-primary">Ver Registros</button></a>
+		</div>
+    </div>
+</body>
+</html>

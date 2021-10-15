@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head th:replace = "layouts/base_layout :: head">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div th:each="imagen : ${imagenes}">
+            <div class="row justify-content-center">
+                <div class="card m-1 p-1" style="width: 30%;">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <img class="float-left ml-1" th:src="@{'/Temp/'+${imagen.archivo_imagen}}" th:alt="${imagen.archivo_imagen}" style="max-width: 90%; max-height: 100%;"/>
+                        </div>
+                        <div class="col-md-5 mt-3">
+                        	<div th:text=${imagen.id_imagen}></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a th:href="@{/api/imagenes}"><button class="btn btn-primary">Volver</button></a>
+    </div>
+</body>
+</html>
